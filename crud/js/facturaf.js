@@ -1,4 +1,4 @@
-import { agregarFilaATabla, getLocalStg, obtenerFecha, setLocalStg } from "./app.js";
+import { agregarFilaATabla, getLocalStg, obtenerFecha, setLocalStg, verUserLogged, logout} from "./app.js";
 import { Factura } from "./factura.js";
 
 let facturas = getLocalStg('Facturas') || [];
@@ -49,13 +49,15 @@ btnAgregar.addEventListener('click', () => { window.location.href = './crearfact
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    verUserLogged()
     btnListar.addEventListener('click', mostrarFacturas)
     btnFiltrar.addEventListener('click', filtrarFacturas)
     btnEliminar.addEventListener('click', prepararEliminar)
     confirmarEliminar.addEventListener('click', eliminarfactura)
     btnEditar.addEventListener('click', prepararFactura)
     formEditar.addEventListener('submit', editarFactura)
+    const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', logout);
 }
 
 
@@ -272,3 +274,4 @@ function editarFactura(e) {
     setLocalStg('Facturas', facturas)
     modalEditar.hide()
 }
+

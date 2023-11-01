@@ -1,5 +1,5 @@
 import { Vendedor, Cliente } from "./persona.js";
-import { setLocalStg, getLocalStg, agregarFilaATabla, agregar, actualizarFila, eliminarElemento } from "./app.js";
+import { setLocalStg, getLocalStg, agregarFilaATabla, agregar, actualizarFila, eliminarElemento, verUserLogged, logout} from "./app.js";
 
 const btnMostrarVendedores = document.getElementById('btn-MostrarVendedores');
 const btnMostrarClientes = document.getElementById('btn-MostrarClientes');
@@ -30,6 +30,7 @@ let mapaDatos = {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    verUserLogged()
     btnMostrarVendedores.addEventListener('click', mostrarVendedores);
     btnMostrarClientes.addEventListener('click', mostrarClientes);
     formAgregar.addEventListener('submit', accionPersona);
@@ -40,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
     confirmarEliminar.addEventListener('click', accionEliminarPersona);
     mapaDatos[TIPO_CLIENTE] = getLocalStg(TIPO_CLIENTE) || [];
     mapaDatos[TIPO_VENDEDOR] = getLocalStg(TIPO_VENDEDOR) || [];
-
+    const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', logout);
 });
 
 
@@ -199,3 +201,5 @@ function accionEliminarPersona() {
     actualizarEncabezados(tipoPersona);
     modalEliminar.hide();
 }
+
+

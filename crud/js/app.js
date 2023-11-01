@@ -59,3 +59,17 @@ export function obtenerFecha(date) {
 
     return `${year}-${month}-${day}`;
 }
+
+export function logout(e){
+    e.preventDefault(); 
+    localStorage.removeItem('userlogged'); 
+    window.location.href = "./index.html";
+}
+
+
+export function verUserLogged() {
+    const usuarioLogeado = JSON.parse(localStorage.getItem('userlogged'));
+    if(!usuarioLogeado) {
+        window.location.href = "./index.html";
+    } 
+}

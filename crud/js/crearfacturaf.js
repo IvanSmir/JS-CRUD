@@ -1,4 +1,4 @@
-import { setLocalStg, getLocalStg, agregarFilaATabla, agregar, actualizarFila, eliminarElemento, obtenerFecha } from "./app.js";
+import { setLocalStg, getLocalStg, agregarFilaATabla, agregar, actualizarFila, eliminarElemento, obtenerFecha, verUserLogged, logout} from "./app.js";
 import { Factura, ItemFactura } from "./factura.js";
 import { Cliente } from "./persona.js";
 
@@ -125,6 +125,7 @@ function agregarItem(cantidad, descripcion, precio) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    verUserLogged
     document.getElementById('form-agregar').addEventListener('submit', accionItems)
     cantidad.addEventListener('input', calcularSubtotal);
     precio.addEventListener('input', calcularSubtotal);
@@ -135,6 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btnEliminar.addEventListener('click', prepararEliminar)
     confirmarEliminar.addEventListener('click', eliminarItem)
     btnEditar.addEventListener('click', editarItem)
+    const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', logout);
 })
 
 
@@ -246,3 +249,4 @@ function resetearEdicion() {
         delete formAgregar.dataset.id;
     }
 }
+
