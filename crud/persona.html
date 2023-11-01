@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="./index.html" class="nav-link">Inicio</a></li>
+      <li class="nav-item"><a href="./crearfactura.html" class="nav-link">Crear Factura</a></li>
+      <li class="nav-item"><a href="persona.html" class="nav-link active" aria-current="page">Personas</a></li>
+      <li class="nav-item"><a href="./facturas.html" class="nav-link">Lista Facturas</a></li>
+    </ul>
+  </header>
+
+  <div class="container mt-3">
+    <div class="container-fluid text-center">
+      <h2 class="text-center">Gestionar Personas</h2>
+      <div class="d-flex justify-content-center">
+        <button id="btn-MostrarVendedores" type="button" class="btn btn-primary  m-3 btn-lg">Mostrar Vendedores</button>
+        <button id="btn-MostrarClientes" type="button" class="btn btn-primary m-3 btn-lg ml-3">Mostrar Clientes</button>
+      </div>
+    </div>
+
+
+    <div id="lista-personas" class="container text-center" style="display:none;">
+      <button id="btn-Agregar" type="button" class="btn btn-secondary mt-3 btn-lg mb-3" data-bs-toggle="modal"
+        data-bs-target="#modal-Agregar">Agregar</button>
+      <button id="btn-Editar" type="button" class="btn btn-warning mt-3 btn-lg mb-3"
+        data-bs-target="#modal-Agregar">Editar</button>
+      <button id="btn-Eliminar" type="button" class="btn btn-danger mt-3 btn-lg mb-3" data-bs-toggle="modal"
+        data-bs-target="#modal-eliminar">Eliminar</button>
+      <table class="table text-start">
+        <thead id="thead">
+          <tr>
+            <th scope="col">✓</th>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">RUC</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Telefono</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="modal fade" id="modal-Agregar" tabindex="-1" role="dialog" aria-hidden="true">
+      <div id="modal-agregar" class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-4 shadow ">
+          <div class="modal-header p-5 pb-4 border-bottom-0 text-center">
+            <h1 id="agregarTitle" class="fw-bold mb-0 fs-2 ">Agregar</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body p-5 pt-0">
+            <form id="form-agregar" class="mb-5">
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" required>
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" required>
+              </div>
+              <div class="form-group">
+                <label for="ruc">RUC</label>
+                <input type="text" class="form-control" id="ruc" name="ruc" required>
+              </div>
+              <div id="comision-div" class="form-group">
+                <label for="comision">Porcentaje de Comisión</label>
+                <input type="number" class="form-control" id="comision" name="comision">
+              </div>
+              <button id="btn-Form" type="submit" class="btn btn-primary mt-3">Agregar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" tabindex="-1" id="modal-eliminar">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Eliminar</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Desea Eliminar a:</p>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-danger" id="confirmarEliminar">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="js/personaf.js" type="module"></script>
+
+</body>
+
+</html>
