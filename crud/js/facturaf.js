@@ -1,4 +1,4 @@
-import { agregarFilaATabla, getLocalStg, obtenerFecha, setLocalStg, verUserLogged, logout } from "./app.js";
+import {getLocalStg, obtenerFecha, setLocalStg, verUserLogged, logout } from "./app.js";
 import { Factura } from "./factura.js";
 
 let facturas = getLocalStg('Facturas') || [];
