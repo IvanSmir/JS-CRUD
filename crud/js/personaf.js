@@ -1,5 +1,5 @@
 import { Vendedor, Cliente } from "./persona.js";
-import { setLocalStg, getLocalStg, agregarFilaATabla, agregar, actualizarFila, eliminarElemento, verUserLogged, logout} from "./app.js";
+import { setLocalStg, getLocalStg, agregarFilaATabla, agregar, actualizarFila, eliminarElemento, verUserLogged, logout } from "./app.js";
 
 const btnMostrarVendedores = document.getElementById('btn-MostrarVendedores');
 const btnMostrarClientes = document.getElementById('btn-MostrarClientes');

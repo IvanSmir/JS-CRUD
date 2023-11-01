@@ -1,4 +1,4 @@
-import { setLocalStg, getLocalStg, agregarFilaATabla, agregar, actualizarFila, eliminarElemento, obtenerFecha, verUserLogged, logout} from "./app.js";
+import { setLocalStg, getLocalStg, agregarFilaATabla, agregar, actualizarFila, eliminarElemento, obtenerFecha, verUserLogged, logout } from "./app.js";
 import { Factura, ItemFactura } from "./factura.js";
 import { Cliente } from "./persona.js";
 

@@ -1,4 +1,4 @@
-import { agregar, getLocalStg, logout} from "./app.js";
+import { agregar, getLocalStg, logout } from "./app.js";
 class Usuario {
     constructor(nombre, usuario, contraseña) {
         this.id = Date.now()
@@ -7,7 +7,6 @@ class Usuario {
         this.contraseña = contraseña;
     }
 }
-
 
 const btnReg = document.getElementById('btn-reg')
 const btnForm = document.getElementById('btn-Form')
@@ -32,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         registrarse()
     })
-    btn.addEventListener('click', (e)=>{
+    btn.addEventListener('click', (e) => {
         e.preventDefault();
         login()
     })
@@ -40,8 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     logoutButton.addEventListener('click', logout);
 
 })
-
-
 
 function registrarse() {
     console.log(usuarioAct)
@@ -56,31 +53,30 @@ function registrarse() {
     agregar(usuarios, newUser, 'Usuarios', false, true)
     modalReg.hide()
     nombre.value = ''
-    usuarioAct.value= ''
-    contraseña.value=''
+    usuarioAct.value = ''
+    contraseña.value = ''
     alert('Registrado con exito')
 }
 
-
-function login(){
+function login() {
     const usuarioExistente = usuarios.find(usuario => usuario.usuario == user.value);
-    if(usuarioExistente.usuario == user.value){
-        if(usuarioExistente.contraseña == pass.value){
+    if (usuarioExistente.usuario == user.value) {
+        if (usuarioExistente.contraseña == pass.value) {
             document.getElementById('header').classList.remove('d-none')
             document.getElementById('signin').classList.add('d-none')
             document.getElementById('textup').innerHTML = 'Elige una opcion de la parte superior'
             localStorage.setItem('userlogged', JSON.stringify(usuarioExistente));
-        }else{
+        } else {
             alert('Contraseña incorrecta')
         }
-    }else{
+    } else {
         alert('No existe usuario')
     }
 }
 
 function verUserLogged() {
     const usuarioLogeado = JSON.parse(localStorage.getItem('userlogged'));
-    if(usuarioLogeado) {
+    if (usuarioLogeado) {
         document.getElementById('header').classList.remove('d-none');
         document.getElementById('signin').classList.add('d-none');
         document.getElementById('textup').innerHTML = 'Elige una opcion de la parte superior';
